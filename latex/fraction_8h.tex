@@ -1,7 +1,6 @@
 \doxysection{fraction.\+h File Reference}
 \hypertarget{fraction_8h}{}\label{fraction_8h}\index{fraction.h@{fraction.h}}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,11 +16,11 @@ struct \mbox{\hyperlink{structFraction}{Fraction}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structFraction}{Fraction}} \mbox{\hyperlink{fraction_8h_aae1b582324307b49108e7de60d91e86a}{add}} (\mbox{\hyperlink{structFraction}{Fraction}} a, \mbox{\hyperlink{structFraction}{Fraction}} b)
-\item 
+\begin{DoxyCompactList}\small\item\em Складывает две дроби \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structFraction}{Fraction}} \mbox{\hyperlink{fraction_8h_ab0ab2bec3318c21942f2a4c694723e8e}{multiply}} (\mbox{\hyperlink{structFraction}{Fraction}} a, \mbox{\hyperlink{structFraction}{Fraction}} b)
-\item 
+\begin{DoxyCompactList}\small\item\em Умножает две дроби используя прямое умножение \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fraction_8h_a4a00fc726a374a481ddd26b82c36af64}{simplify}} (\mbox{\hyperlink{structFraction}{Fraction}} \&f)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Упрощает дробь делением на НОД \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -31,15 +30,84 @@ void \mbox{\hyperlink{fraction_8h_a4a00fc726a374a481ddd26b82c36af64}{simplify}} 
 \doxysubsubsection{\texorpdfstring{add()}{add()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structFraction}{Fraction}} add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{a,  }\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{b }\end{DoxyParamCaption})}
 
+
+
+Складывает две дроби 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Первая дробь для сложения\\
+\hline
+{\em b} & Вторая дробь для сложения\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Новая дробь, являющаяся результатом сложения
+\end{DoxyReturn}
+Складывает две дроби
+
+Сначала находит общий знаменатель, затем складывает числители, в конце упрощает результат.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Первая дробь \\
+\hline
+{\em b} & Вторая дробь ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structFraction}{Fraction} Упрощенный результат сложения
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & если какой-\/либо знаменатель равен нулю \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{fraction_8h_ab0ab2bec3318c21942f2a4c694723e8e}\label{fraction_8h_ab0ab2bec3318c21942f2a4c694723e8e} 
 \index{fraction.h@{fraction.h}!multiply@{multiply}}
 \index{multiply@{multiply}!fraction.h@{fraction.h}}
 \doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structFraction}{Fraction}} multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{a,  }\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{b }\end{DoxyParamCaption})}
 
+
+
+Умножает две дроби используя прямое умножение 
+
+Умножает числители вместе и знаменатели вместе, затем упрощает результат.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Первая дробь \\
+\hline
+{\em b} & Вторая дробь \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structFraction}{Fraction} Упрощенный результат умножения
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & если какой-\/либо знаменатель равен нулю \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{fraction_8h_a4a00fc726a374a481ddd26b82c36af64}\label{fraction_8h_a4a00fc726a374a481ddd26b82c36af64} 
 \index{fraction.h@{fraction.h}!simplify@{simplify}}
 \index{simplify@{simplify}!fraction.h@{fraction.h}}
 \doxysubsubsection{\texorpdfstring{simplify()}{simplify()}}
 {\footnotesize\ttfamily void simplify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structFraction}{Fraction}} \&}]{f }\end{DoxyParamCaption})}
 
+
+
+Упрощает дробь делением на НОД 
+
+Также обрабатывает отрицательные дроби, обеспечивая чтобы знак всегда был в числителе.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Дробь для упрощения (изменяется на месте)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Если знаменатель становится нулем после упрощения, поведение не определено. Всегда проверяйте входные данные сначала. 
+\end{DoxyWarning}

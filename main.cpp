@@ -1,5 +1,14 @@
 #include <iostream>
 
+/**
+ * @brief Главная функция, демонстрирующая операции с дробями
+ * @return int Статус выхода (0 для успеха)
+ * 
+ * @see Fraction
+ * @see add()
+ * @see multiply()
+ */
+
    #include "fraction.h"
 
       int main() {

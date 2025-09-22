@@ -2,8 +2,7 @@
 \hypertarget{fraction_8cpp}{}\label{fraction_8cpp}\index{fraction.cpp@{fraction.cpp}}
 {\ttfamily \#include "{}fraction.\+h"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
-Include dependency graph for fraction.\+cpp\+:
-\nopagebreak
+Include dependency graph for fraction.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,13 +13,13 @@ Include dependency graph for fraction.\+cpp\+:
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{fraction_8cpp_a9b2ebc40a69dd3ffe6526f855bd32765}{find\+GCD}} (int a, int b)
-\item 
+\begin{DoxyCompactList}\small\item\em Находит Наибольший Общий Делитель (НОД) используя алгоритм Евклида \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structFraction}{Fraction}} \mbox{\hyperlink{fraction_8cpp_aae1b582324307b49108e7de60d91e86a}{add}} (\mbox{\hyperlink{structFraction}{Fraction}} a, \mbox{\hyperlink{structFraction}{Fraction}} b)
-\item 
+\begin{DoxyCompactList}\small\item\em Складывает две дроби используя общий знаменатель \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structFraction}{Fraction}} \mbox{\hyperlink{fraction_8cpp_ab0ab2bec3318c21942f2a4c694723e8e}{multiply}} (\mbox{\hyperlink{structFraction}{Fraction}} a, \mbox{\hyperlink{structFraction}{Fraction}} b)
-\item 
+\begin{DoxyCompactList}\small\item\em Умножает две дроби используя прямое умножение \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fraction_8cpp_a4a00fc726a374a481ddd26b82c36af64}{simplify}} (\mbox{\hyperlink{structFraction}{Fraction}} \&f)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Упрощает дробь делением на НОД \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -30,21 +29,96 @@ void \mbox{\hyperlink{fraction_8cpp_a4a00fc726a374a481ddd26b82c36af64}{simplify}
 \doxysubsubsection{\texorpdfstring{add()}{add()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structFraction}{Fraction}} add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{a,  }\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{b }\end{DoxyParamCaption})}
 
+
+
+Складывает две дроби используя общий знаменатель 
+
+Складывает две дроби
+
+Сначала находит общий знаменатель, затем складывает числители, в конце упрощает результат.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Первая дробь \\
+\hline
+{\em b} & Вторая дробь ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structFraction}{Fraction} Упрощенный результат сложения
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & если какой-\/либо знаменатель равен нулю \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{fraction_8cpp_a9b2ebc40a69dd3ffe6526f855bd32765}\label{fraction_8cpp_a9b2ebc40a69dd3ffe6526f855bd32765} 
 \index{fraction.cpp@{fraction.cpp}!findGCD@{findGCD}}
 \index{findGCD@{findGCD}!fraction.cpp@{fraction.cpp}}
 \doxysubsubsection{\texorpdfstring{findGCD()}{findGCD()}}
 {\footnotesize\ttfamily int find\+GCD (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
 
+
+
+Находит Наибольший Общий Делитель (НОД) используя алгоритм Евклида 
+
+Алгоритм Евклида основан на принципе, что НОД двух чисел не меняется, если большее число заменить его разностью с меньшим числом.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Первое целое число (становится НОД в конце) \\
+\hline
+{\em b} & Второе целое число \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int НОД a и b 
+\end{DoxyReturn}
 \Hypertarget{fraction_8cpp_ab0ab2bec3318c21942f2a4c694723e8e}\label{fraction_8cpp_ab0ab2bec3318c21942f2a4c694723e8e} 
 \index{fraction.cpp@{fraction.cpp}!multiply@{multiply}}
 \index{multiply@{multiply}!fraction.cpp@{fraction.cpp}}
 \doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structFraction}{Fraction}} multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{a,  }\item[{\mbox{\hyperlink{structFraction}{Fraction}}}]{b }\end{DoxyParamCaption})}
 
+
+
+Умножает две дроби используя прямое умножение 
+
+Умножает числители вместе и знаменатели вместе, затем упрощает результат.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Первая дробь \\
+\hline
+{\em b} & Вторая дробь \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structFraction}{Fraction} Упрощенный результат умножения
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & если какой-\/либо знаменатель равен нулю \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{fraction_8cpp_a4a00fc726a374a481ddd26b82c36af64}\label{fraction_8cpp_a4a00fc726a374a481ddd26b82c36af64} 
 \index{fraction.cpp@{fraction.cpp}!simplify@{simplify}}
 \index{simplify@{simplify}!fraction.cpp@{fraction.cpp}}
 \doxysubsubsection{\texorpdfstring{simplify()}{simplify()}}
 {\footnotesize\ttfamily void simplify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structFraction}{Fraction}} \&}]{f }\end{DoxyParamCaption})}
 
+
+
+Упрощает дробь делением на НОД 
+
+Также обрабатывает отрицательные дроби, обеспечивая чтобы знак всегда был в числителе.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Дробь для упрощения (изменяется на месте)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Если знаменатель становится нулем после упрощения, поведение не определено. Всегда проверяйте входные данные сначала. 
+\end{DoxyWarning}
